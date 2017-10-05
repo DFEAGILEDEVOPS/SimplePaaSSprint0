@@ -30,14 +30,15 @@ builder, `dotnet/dotnet-20-rhel7`, execute the following command:
 
 [source]
 ----
-s2i build --ref=dotnetcore-2.0 --context-dir=app https://github.com/redhat-developer/s2i-dotnetcore-ex dotnet/dotnet-20-rhel7 aspnet-app
+docker pull registry.access.redhat.com/dotnet/dotnet-20-rhel7
+s2i build --ref=dotnetcore-2.0 --context-dir=app https://github.com/DFEAGILEDEVOPS/SimplePaaSSprint0.git registry.access.redhat.com/dotnet/dotnet-20-rhel7:latest sprint0
 ----
 
 The resulting image can be executed using docker:
 
 [source]
 ----
-docker run -d -p 8080:8080 aspnet-app
+docker run -d -p 8080:8080 sprint0
 ----
 
 Once the container is running, it should be accessible using:
