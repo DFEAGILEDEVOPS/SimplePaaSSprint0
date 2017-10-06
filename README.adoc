@@ -31,11 +31,6 @@ The sample application can be built and run either within OpenShift or
 standalone by combining the application using s2i tool and running with
 existing image using Docker. The following sections describes these processes.
 
-== OpenShift
-
-The dotnet-example template at https://github.com/redhat-developer/s2i-dotnetcore instantiates the example application.
-The https://github.com/redhat-developer/s2i-dotnetcore/blob/master/README.md[README.md] describes how to use the template.
-
 # Standalone
 
 To build a new .NET Core application using a previously existing s2i-dotnetcore
@@ -55,6 +50,19 @@ docker run -d -p 8080:8080 sprint0
 ----
 
 Once the container is running, it should be accessible using your browser at http://127.0.0.1:8080
+
+# OpenShift
+
+[source]
+----
+# import the image stream (orginally from https://github.com/openshift/library/tree/master/official/dotnet/imagestreams)
+oc create -f dotnet-rhel7.json
+
+# import the dotnet 2.0 template (originally from https://github.com/redhat-developer/s2i-dotnetcore)
+oc create -f dotnet-example.json
+---- 
+
+The template will show up in the web console and you can run it by giving it this repos git url. It will then deploy this app. 
 
 [[copyright-license]]
 Copyright and License
