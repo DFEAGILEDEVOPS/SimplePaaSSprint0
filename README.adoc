@@ -12,6 +12,19 @@ the official
 https://docs.openshift.com/enterprise/latest/using_images/s2i_images/dot_net_core.html[OpenShift
 Documentation].
 
+= Run Natively (Mac, Linux, Win)
+
+First instal C# dotnet core SDK from https://www.microsoft.com/net/download/core 
+
+[source]
+----
+git clone https://github.com/DFEAGILEDEVOPS/SimplePaaSSprint0.git 
+cd SimplePaaSSprint0/app
+dotnet run
+----
+
+It should start a webserver running at http://localhost:5000
+
 = Building and Running 
 
 The sample application can be built and run either within OpenShift or
