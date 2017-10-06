@@ -12,7 +12,20 @@ the official
 https://docs.openshift.com/enterprise/latest/using_images/s2i_images/dot_net_core.html[OpenShift
 Documentation].
 
-= Building and Running 
+= Run Natively (Mac, Linux, Win)
+
+First instal C# dotnet core SDK from https://www.microsoft.com/net/download/core 
+
+[source]
+----
+git clone https://github.com/DFEAGILEDEVOPS/SimplePaaSSprint0.git 
+cd SimplePaaSSprint0/app
+dotnet run
+----
+
+It should start a webserver running at http://localhost:5000
+
+= Building and Running with s2i (source-to-image)
 
 The sample application can be built and run either within OpenShift or
 standalone by combining the application using s2i tool and running with
@@ -34,36 +47,20 @@ docker pull registry.access.redhat.com/dotnet/dotnet-20-rhel7
 s2i build --ref=dotnetcore-2.0 --context-dir=app https://github.com/DFEAGILEDEVOPS/SimplePaaSSprint0.git registry.access.redhat.com/dotnet/dotnet-20-rhel7:latest sprint0
 ----
 
-The resulting image can be executed using docker:
+The resulting image can be executed locally using docker (try "Docker for Mac" or "Docker for Windows"):
 
 [source]
 ----
 docker run -d -p 8080:8080 sprint0
 ----
 
-Once the container is running, it should be accessible using:
-
-[source]
-----
-curl http://127.0.0.1:8080
-----
-
-[[contributing]]
-Contributing
-~~~~~~~~~~~~
-
-Contributions to this project (in the form of bug reports, patches, or pull
-requests) are gratefully accepted by the maintainer.  Please see the
-link:Contributing.adoc[Contributing.adoc] file contained in this package
-for details.
+Once the container is running, it should be accessible using your browser at http://127.0.0.1:8080
 
 [[copyright-license]]
 Copyright and License
 ~~~~~~~~~~~~~~~~~~~~~
 
-Copyright 2016-2017 by Red Hat, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not
+Portions Copyright 2016-2017 by Red Hat, Inc. Licensed under the Apache License, Version 2.0 (the "License"); you may not
 use this package except in compliance with the License (see the `LICENSE` file
 included in this distribution). You may obtain a copy of the License at
 
