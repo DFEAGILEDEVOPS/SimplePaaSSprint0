@@ -1,3 +1,9 @@
 .vscode/
 app/bin/
 app/obj/
+
+app/.vs/config/applicationhost.config
+
+app/app.csproj.user
+
+app/Properties/launchSettings.json
